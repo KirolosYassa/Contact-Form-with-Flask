@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    input {
+        width: 15rem;
+        margin: auto;
+    }
+</style>
 
 <body>
+    {‌{ form.csrf_token }}
+
     <form action="{{ url_for('login') }}" method="post">
-        <label for="">Name:</label>
-        <input type="text" name="name" id="name">
-        <label for="">Password:</label>
+        <label for="">Email</label>
+        <input type="text" name="email" id="name">
+        <label for="">Password</label>
         <input type="password" name="password" id="password">
-        <button type="submit">OK</button>
+        <button type="submit">Login</button>
     </form>
 </body>
 
