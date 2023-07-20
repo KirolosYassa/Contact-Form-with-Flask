@@ -1,28 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    input {
-        width: 15rem;
-        margin: auto;
-    }
-</style>
+{% block title %}Home{% endblock %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block content %}
 
-<body>
-    {‌{ form.csrf_token }}
+<div class="container">
 
-    <form action="{{ url_for('login') }}" method="post">
-        <label for="">Email</label>
-        <input type="text" name="email" id="name">
-        <label for="">Password</label>
-        <input type="password" name="password" id="password">
-        <button type="submit">Login</button>
+    <h1>Login</h1>
+
+    <form method="POST" action="{{ url_for('login') }}">
+        {{ render_form(form) }}
     </form>
-</body>
 
-</html>
+</div>
+<!-- <form action="{{ url_for('login') }}" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token() }}
+    <p>
+        {{form.email.label(class="form-label")}} <br />{{ form.email(size=30, class="form-control") }} </p>
+    {% for err in form.email.errors %}
+    <span class="error">{{err}}</span>
+    {% endfor %}
+    <p>
+        {{form.password.label(class="form-label")}} <br />{{form.password(size=30, class="form-control")}}
+        {% for err in form.password.errors %}
+        <span class="error">{{err}}</span>
+        {% endfor %}
+    </p>
+    {{form.submit(class="btn btn-primary")}}
+</form> -->
+{% endblock %}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block styles %}
+    <!-- Bootstrap CSS -->
+    {{ bootstrap.load_css() }}
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% endblock %}
+
+
+</head>
+<style>
+    /* Target the label elements */
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Target the input elements */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        display: block;
+        width: 15rem;
+        padding: 10px;
+        margin-right: auto;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+
+    .error {
+        color: red;
+    }
+</style>
+
+<body>
+
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+
+{% block scripts %}
+<!-- Optional JavaScript -->
+{{ bootstrap.load_js() }}
+{% endblock %}
+
+</html>
